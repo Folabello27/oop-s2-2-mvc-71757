@@ -19,7 +19,28 @@ public class DashboardAndFollowUpTests
             .Options;
         var context = new ApplicationDbContext(options);
         context.Database.EnsureCreated();
+        ClearSeedData(context);
         return context;
+    }
+
+    private static void ClearSeedData(ApplicationDbContext context)
+    {
+        if (context.FollowUps.Any())
+        {
+            context.FollowUps.RemoveRange(context.FollowUps.ToList());
+        }
+
+        if (context.Inspections.Any())
+        {
+            context.Inspections.RemoveRange(context.Inspections.ToList());
+        }
+
+        if (context.Premises.Any())
+        {
+            context.Premises.RemoveRange(context.Premises.ToList());
+        }
+
+        context.SaveChanges();
     }
 
     [Fact]
