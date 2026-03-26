@@ -1,0 +1,57 @@
+@model oop_s2_2_mvc_71757.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1 class="mb-3">Dashboard</h1>
+
+<div class="panel mb-4">
+    <form method="get" class="row g-3">
+        <div class="col-md-4">
+            <label for="town" class="form-label">Town</label>
+            <select id="town" name="town" class="form-select">
+                <option value="">All</option>
+                @foreach (var town in Model.Towns)
+                {
+                    <option value="@town" selected="@(town == Model.SelectedTown ? "selected" : null)">@town</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="riskRating" class="form-label">Risk Rating</label>
+            <select id="riskRating" name="riskRating" class="form-select">
+                <option value="">All</option>
+                @foreach (var rating in Enum.GetValues<oop_s2_2_mvc_71757.Models.RiskRating>())
+                {
+                    <option value="@rating" selected="@(rating == Model.SelectedRiskRating ? "selected" : null)">@rating</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4 align-self-end">
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+            <a class="btn btn-outline-primary" asp-action="Index">Reset</a>
+        </div>
+    </form>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Inspections This Month</div>
+            <div class="metric">@Model.InspectionsThisMonth</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Failed Inspections This Month</div>
+            <div class="metric">@Model.FailedInspectionsThisMonth</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Open Follow-ups Overdue</div>
+            <div class="metric">@Model.OverdueOpenFollowUps</div>
+        </div>
+    </div>
+</div>

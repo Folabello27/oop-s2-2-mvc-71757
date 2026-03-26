@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="display-5">Food Safety Inspection Tracker</h1>
+            <p class="lead">Keep a clear audit trail of inspections, follow-ups, and outcomes so management can spot risk fast.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" asp-controller="Dashboard" asp-action="Index">Open Dashboard</a>
+                <a class="btn btn-outline-primary" asp-controller="Inspections" asp-action="Index">Review Inspections</a>
+            </div>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="panel">
+                <h5>Sample Accounts</h5>
+                <p class="mb-2">Use these to explore role-based access:</p>
+                <p class="mb-1"><strong>Admin</strong> — admin@foodsafety.local / Admin123!</p>
+                <p class="mb-1"><strong>Inspector</strong> — inspector@foodsafety.local / Inspector123!</p>
+                <p class="mb-0"><strong>Viewer</strong> — viewer@foodsafety.local / Viewer123!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="row g-3 mt-4">
+    <div class="col-md-4">
+        <div class="panel h-100">
+            <h5>Premises overview</h5>
+            <p class="text-muted">Track risk ratings, towns, and premises details.</p>
+            <a asp-controller="Premises" asp-action="Index" class="btn btn-outline-primary">View Premises</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel h-100">
+            <h5>Inspection history</h5>
+            <p class="text-muted">Review inspection scores and outcomes for every visit.</p>
+            <a asp-controller="Inspections" asp-action="Index" class="btn btn-outline-primary">View Inspections</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel h-100">
+            <h5>Follow-up actions</h5>
+            <p class="text-muted">Stay ahead of overdue corrective actions.</p>
+            <a asp-controller="FollowUps" asp-action="Index" class="btn btn-outline-primary">View Follow-ups</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --ink: #0d1b1e;
+  --slate: #475569;
+  --mist: #e2e8f0;
+  --ocean: #0f766e;
+  --ocean-dark: #0b4f4a;
+  --sun: #f59e0b;
+  --rose: #e11d48;
+  --sky: #e0f2fe;
+  --leaf: #d1fae5;
+  --paper: #f8fafc;
+  --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(1200px 500px at 10% 0%, #e0f2fe 0%, #f8fafc 45%, #ffffff 100%);
+  color: var(--ink);
+  min-height: 100vh;
+  margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Fraunces", "Times New Roman", serif;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--slate) !important;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: var(--ocean) !important;
+}
+
+.page-shell {
+  padding: 2.5rem 0 3rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(14, 116, 144, 0.1));
+  border: 1px solid rgba(15, 118, 110, 0.15);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.6s ease-out;
+}
+
+.hero p {
+  color: var(--slate);
+}
+
+.hero-actions .btn {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.stat-card {
+  border-radius: 18px;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.6s ease-out;
+}
+
+.stat-card .metric {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ocean-dark);
+}
+
+.stat-card .label {
+  color: var(--slate);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+}
+
+.badge-soft {
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--sky);
+  color: #075985;
+}
+
+.badge-high {
+  background: #fee2e2;
+  color: var(--rose);
+}
+
+.badge-medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-low {
+  background: var(--leaf);
+  color: #065f46;
+}
+
+.table {
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.6s ease-out;
+}
+
+.table thead {
+  background: #f1f5f9;
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background-color: var(--ocean);
+  border-color: var(--ocean);
+  font-weight: 600;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--ocean-dark);
+  border-color: var(--ocean-dark);
+}
+
+.btn-outline-primary {
+  color: var(--ocean);
+  border-color: var(--ocean);
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--ocean);
+  color: #ffffff;
+}
+
+.footer {
+  background: transparent;
+  padding: 1.5rem 0;
+  color: var(--slate);
+}
+
+.form-control, .form-select, textarea {
+  border-radius: 12px;
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: var(--ocean);
+  box-shadow: 0 0 0 0.2rem rgba(15, 118, 110, 0.2);
+}
+
+.table-actions a {
+  font-weight: 600;
+  color: var(--ocean);
+}
+
+.table-actions a:hover {
+  color: var(--ocean-dark);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

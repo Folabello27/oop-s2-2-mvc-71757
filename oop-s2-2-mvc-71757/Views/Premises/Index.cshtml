@@ -1,0 +1,55 @@
+@model IEnumerable<oop_s2_2_mvc_71757.Models.Premises>
+
+@{
+    ViewData["Title"] = "Premises";
+}
+
+<h1>Premises</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create Premises</a>
+    </p>
+}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Town</th>
+        <th>Risk Rating</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Town</td>
+            <td>
+                @{
+                    var ratingClass = item.RiskRating switch
+                    {
+                        RiskRating.High => "badge-soft badge-high",
+                        RiskRating.Medium => "badge-soft badge-medium",
+                        _ => "badge-soft badge-low"
+                    };
+                }
+                <span class="@ratingClass">@item.RiskRating</span>
+            </td>
+            <td class="table-actions">
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <span> | </span>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <span> | </span>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

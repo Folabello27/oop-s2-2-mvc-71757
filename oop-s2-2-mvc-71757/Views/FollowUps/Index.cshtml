@@ -1,0 +1,59 @@
+@model IEnumerable<oop_s2_2_mvc_71757.Models.FollowUp>
+
+@{
+    ViewData["Title"] = "Follow-ups";
+}
+
+<h1>Follow-ups</h1>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Inspector"))
+{
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create Follow-up</a>
+    </p>
+}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Inspection</th>
+        <th>Premises</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Closed Date</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>#@item.InspectionId</td>
+            <td>@item.Inspection?.Premises?.Name</td>
+            <td>@item.DueDate.ToString("yyyy-MM-dd")</td>
+            <td>
+                @{
+                    var statusClass = item.Status == FollowUpStatus.Open
+                        ? "badge-soft badge-medium"
+                        : "badge-soft badge-low";
+                }
+                <span class="@statusClass">@item.Status</span>
+            </td>
+            <td>@(item.ClosedDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+            <td class="table-actions">
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Inspector"))
+                {
+                    <span> | </span>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <span> | </span>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
